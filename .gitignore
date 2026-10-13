@@ -7,3 +7,5 @@
 
 # Build
 obj
+reference
+tests/**

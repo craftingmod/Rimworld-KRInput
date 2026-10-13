@@ -20,10 +20,11 @@
 		<Optimize>true</Optimize>
 		<DebugSymbols>true</DebugSymbols>
 		<DebugType>portable</DebugType>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>
 
  	<ItemGroup>
-	 	<Compile Include="../Source/*" />
+		<Compile Remove="reference/**/*.cs;tests/**/*.cs" />
 		<Reference Include="$(RimWorldDir)\System*.dll" Exclude="$(RimWorldDir)\System.IO.Compression.Native.dll">
 			<Private>false</Private>
 		</Reference>
@@ -39,6 +40,6 @@
 			<HintPath>$(RimWorldDir)\UnityStubs.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
-		<PackageReference Include="Lib.Harmony" Version="3.0.0-rc.2" />
+		<PackageReference Include="Lib.Harmony.Ref" Version="3.0.0-rc.2" />
 	</ItemGroup>
 </Project>

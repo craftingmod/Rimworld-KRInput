@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<packageId>username.modname</packageId>
-	<name>Mod Template</name>
+	<packageId>rimworld.krinput.imeprobe</packageId>
+	<name>RimWorld Korean IME Probe</name>
 	<author>username</author>
 	<!-- <modIconPath>path/to/icon</modIconPath> -->
 	<supportedVersions>
@@ -29,5 +29,5 @@
 		<!-- <li>username.modname</li> -->
 	</loadAfter>
 
-	<description>Template</description>
+	<description>Experimental Korean IME composition support in the common single-line TextField path for RimWorld 1.7. Typed text is recorded in the game log.</description>
 </ModMetaData>
