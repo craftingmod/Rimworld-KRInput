@@ -9,14 +9,16 @@ This template is created for Rimworld modders who use [Visual Studio Code](https
 
 ## Setup
 ### Windows
-1. Download and install [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) and [.Net Framework 4.8 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net48). This step can be skipped if you already have required C# packages from Visual Studio IDE.
+1. Download and install the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
 2. Install [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 3. Clone, pull or download this template into your Rimworld `Mods` folder.
 
 ### Linux
-1. Linux `dotnet` setup may vary depending on how you install Rimworld and what distro is being used. Follow [Microsoft's instructions](https://learn.microsoft.com/en-us/dotnet/core/install/linux) to install `dotnet`.
+1. Follow [Microsoft's instructions](https://learn.microsoft.com/en-us/dotnet/core/install/linux) to install the .NET 10 SDK.
 2. Install [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 3. Clone, pull or download this template into your Rimworld `Mods` folder.
+
+The project references the installed RimWorld 1.7 assemblies. Set the `RIMWORLD_DIR` environment variable to the game root if it is not `G:\SteamLibrary\steamapps\common\RimWorld`.
 
 ## Additional Notes
 * By pressing `F5` key VS Code will perform 2 operations: build assembly file and launch Rimworld executable. 
