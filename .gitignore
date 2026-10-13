@@ -12,3 +12,6 @@ reference
 tests/bin
 tests/obj
 tests/inspect
+
+# Releases
+releases/
