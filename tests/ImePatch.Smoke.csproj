@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <RimWorldDir Condition="'$(RimWorldDir)' == ''">G:\SteamLibrary\steamapps\common\RimWorld</RimWorldDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ImePatchSmoke.cs;../Source/ImeState.cs;../Source/ImePatches.cs;../Source/WindowsImeBridge.cs" />
+    <Reference Include="$(RimWorldDir)\UnityStubs.dll;$(RimWorldDir)\Assembly-CSharp.dll;$(RimWorldDir)\Waylith.dll;$(RimWorldDir)\Brutal.Glfw.dll;$(RimWorldDir)\Brutal.Core.Numerics.dll"><Private>false</Private></Reference>
+    <PackageReference Include="Lib.Harmony" Version="3.0.0-rc.2" />
+  </ItemGroup>
+</Project>

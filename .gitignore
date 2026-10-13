@@ -9,3 +9,5 @@
 obj
 reference
 tests/**
+!tests/ImePatch.Smoke.csproj
+!tests/ImePatchSmoke.cs

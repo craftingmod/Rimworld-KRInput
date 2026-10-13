@@ -9,8 +9,8 @@
 		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
 
 		<!-- Modify RootNamespace, AssemblyName, OutputPath, VersionPrefix -->
-		<RootNamespace>Template</RootNamespace>
-		<AssemblyName>Template</AssemblyName>
+		<RootNamespace>KRInput</RootNamespace>
+		<AssemblyName>KRInput</AssemblyName>
 		<OutputPath>1.7/Assemblies</OutputPath>
 		<VersionPrefix>0.1.0.0</VersionPrefix>
 		<RimWorldDir Condition="'$(RimWorldDir)' == ''">$(RIMWORLD_DIR)</RimWorldDir>
@@ -25,6 +25,9 @@
 
  	<ItemGroup>
 		<Compile Remove="reference/**/*.cs;tests/**/*.cs" />
+		<Reference Include="$(RimWorldDir)\Waylith.dll;$(RimWorldDir)\Brutal.Glfw.dll;$(RimWorldDir)\Brutal.Core.Numerics.dll">
+			<Private>false</Private>
+		</Reference>
 		<Reference Include="$(RimWorldDir)\System*.dll" Exclude="$(RimWorldDir)\System.IO.Compression.Native.dll">
 			<Private>false</Private>
 		</Reference>
