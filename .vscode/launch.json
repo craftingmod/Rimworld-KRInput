@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Build & Run",
+            "type": "node", // VSC doesn't have a `shell` type, use built in `node` type instead
+            "request": "launch",
+            "cwd": "${workspaceFolder}/../../",
+            "console": "internalConsole",
+            "internalConsoleOptions":"neverOpen",
+            "windows": {
+                "runtimeExecutable": "${workspaceFolder}/../../RimWorldWin64.exe",
+                "preLaunchTask": "BuildWindowsDLL",
+            },
+            "linux": {
+                // https://github.com/pardeike/Rimworld-Doorstop?tab=readme-ov-file#quick-start--linux-with-rider
+                "runtimeExecutable": "sh",
+                "runtimeArgs": [ 
+                    "-c", "if [ -f ./run.sh ]; then ./run.sh; else ./RimWorldLinux; fi"
+                ],
+                "preLaunchTask": "BuildLinuxDLL",
+            }
+        },  
+        {
+            "name": "Attach Debugger",
+            "type": "mono",
+            "request": "attach",
+            "address": "127.0.0.1",
+            "port": 56000,
+        },
+    ],
+    "compounds": [
+        {
+            "name": "Build & Debug",
+            "configurations": [
+                "Build & Run",
+                "Attach Debugger"
+            ],
+            "stopAll": true
+        },
+    ],
+}
