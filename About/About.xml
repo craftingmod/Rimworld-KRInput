@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<packageId>rimworld.krinput.imeprobe</packageId>
-	<name>RimWorld Korean IME Patch Mock</name>
-	<author>username</author>
-	<!-- <modIconPath>path/to/icon</modIconPath> -->
+	<packageId>alyac.rimworld.krinput</packageId>
+	<name>RimWorld Korean IME Patch</name>
+	<author>alyac</author>
+	<modIconPath>About/icon.png</modIconPath>
 	<supportedVersions>
 		<li>1.7</li>
 	</supportedVersions>
@@ -29,5 +29,5 @@
 		<!-- <li>username.modname</li> -->
 	</loadAfter>
 
-	<description>Inert Harmony patch entry-point mock for the next RimWorld 1.7 Korean IME experiment. It currently declares no patch targets.</description>
+	<description>림월드 1.7 Waylith 엔진에서 발생하는 한글 IME 입력 문제를 해결하는 윈도우용 한글 브릿지입니다. "World Feature Text Compatibility 1.7" 및 "readable-fonts17" 모드와 같이 사용하는 걸 강력히 권장합니다.</description>
 </ModMetaData>
