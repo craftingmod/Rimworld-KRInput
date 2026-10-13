@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../Source/ImeProbe.cs" Link="ImeProbe.cs" />
+    <Compile Include="../Source/WindowsImeProbe.cs" Link="WindowsImeProbe.cs" />
+    <Compile Include="../Source/ImePreedit.cs" Link="ImePreedit.cs" />
+    <Compile Include="../Source/ImeField.cs" Link="ImeField.cs" />
+    <Compile Include="../Source/ImeResetShortcut.cs" Link="ImeResetShortcut.cs" />
+    <PackageReference Include="Lib.Harmony" Version="3.0.0-rc.2" />
+  </ItemGroup>
+</Project>

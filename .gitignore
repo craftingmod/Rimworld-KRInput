@@ -8,6 +8,8 @@
 # Build
 obj
 reference
-tests/**
-!tests/ImePatch.Smoke.csproj
-!tests/ImePatchSmoke.cs
+
+# Tests Build
+tests/bin
+tests/obj
+tests/inspect
