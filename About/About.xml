@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 	<packageId>rimworld.krinput.imeprobe</packageId>
-	<name>RimWorld Korean IME Probe</name>
+	<name>RimWorld Korean IME Patch Mock</name>
 	<author>username</author>
 	<!-- <modIconPath>path/to/icon</modIconPath> -->
 	<supportedVersions>
@@ -9,12 +9,12 @@
 	</supportedVersions>
 
 	<modDependencies>
-		<!-- <li>
+		<li>
 			<packageId>brrainz.harmony</packageId>
 			<displayName>Harmony</displayName>
 			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
 			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
-		</li> -->
+		</li>
 	</modDependencies>
 
 	<incompatibleWith>
@@ -29,5 +29,5 @@
 		<!-- <li>username.modname</li> -->
 	</loadAfter>
 
-	<description>Experimental Korean IME composition support in the common single-line TextField path for RimWorld 1.7. Typed text is recorded in the game log.</description>
+	<description>Inert Harmony patch entry-point mock for the next RimWorld 1.7 Korean IME experiment. It currently declares no patch targets.</description>
 </ModMetaData>

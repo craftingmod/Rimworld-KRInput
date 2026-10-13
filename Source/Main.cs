@@ -1,13 +1,16 @@
+using HarmonyLib;
 using Verse;
 
 namespace RimWorldKRInput
 {
     [StaticConstructorOnStartup]
-    public static class Start
+    internal static class HarmonyPatchEntryPointMock
     {
-        static Start()
+        static HarmonyPatchEntryPointMock()
         {
-            ImeProbe.Install();
+            var harmony = new Harmony("rimworld.krinput.entrypoint-mock");
+            harmony.PatchAll(typeof(HarmonyPatchEntryPointMock).Assembly);
+            Log.Message("[KRInput] Harmony patch entry-point mock initialized.");
         }
     }
 }

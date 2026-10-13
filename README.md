@@ -1,41 +1,31 @@
-# Rimworld Mod Template
+# RimWorld Korean IME 실험
 
-This template is created for Rimworld modders who use [Visual Studio Code](https://code.visualstudio.com/) instead of Visual Studio IDE.
+RimWorld 1.7 Waylith의 한국어 IME 입력 경로를 조사한 기록과 다음 Harmony 패치 실험의 시작점입니다.
 
-* __No virtual folders__. Easy to manage and edit both `xml` and `cs` files.
-* __Lightweight__. Visual Studio Code only takes up to 500 MB of storage space and is lighting fast.
-* __Automated__. Integrated build, scripting and management tools to perform common tasks making everyday workflows faster.
-* __Customizable__. Almost every feature can be changed, whenever it is editor UI, keybinds or folder structure.
+## 현재 상태
 
-## Setup
-### Windows
-1. Download and install the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
-2. Install [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-3. Clone, pull or download this template into your Rimworld `Mods` folder.
+- 기존 IME 계측, preedit 렌더링, 지역 검색, ResetToOff 실험 코드는 제거했습니다.
+- 실행 코드에는 `Source/Main.cs`의 `HarmonyPatchEntryPointMock`만 있습니다.
+- Mock은 이 어셈블리에 `Harmony.PatchAll`을 호출하지만 현재 `[HarmonyPatch]` 대상이 없어 게임 동작을 바꾸지 않습니다.
+- 기존 실험 결과와 절차는 [조사 기록](docs/agent/RimWorld_1.7_Waylith_Korean_IME_Investigation.md)에 보존했습니다.
 
-### Linux
-1. Follow [Microsoft's instructions](https://learn.microsoft.com/en-us/dotnet/core/install/linux) to install the .NET 10 SDK.
-2. Install [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-3. Clone, pull or download this template into your Rimworld `Mods` folder.
+## 실험 요약
 
-The project references the installed RimWorld 1.7 assemblies. Set the `RIMWORLD_DIR` environment variable to the game root if it is not `G:\SteamLibrary\steamapps\common\RimWorld`.
+| 단계 | 결과 |
+| --- | --- |
+| 1. Unity/IMGUI 계측 | Harmony 바인딩은 확인. 실제 조합 콜백은 관찰되지 않음. |
+| 2. GLFW/Windows 메시지 | 게임 로그에서 `ㅇ → 아 → 안` 조합 문자열을 확인. |
+| 3. 화면 preedit | 단일 행 조합 오버레이가 게임에서 표시됨. 검색은 확정 시점에 갱신됨. |
+| 4. 지역 검색 preview | 자동 검증은 통과했으나 게임에서 실패하여 중단. |
+| 5. 공통 TextField 반환값 | 자동 검증과 Harmony 바인딩은 통과. 실제 게임 입력 결과는 미확인. |
+| 보조 진단 | IMM 상태, ResetToOff 버튼/액션, `]` 단축키는 실험용이며 현재 실행 경로에서 제거됨. |
 
-## Additional Notes
-* By pressing `F5` key VS Code will perform 2 operations: build assembly file and launch Rimworld executable. 
-* All intermediate files are kept inside `.vscode` folder.
-* For XML only modders remove preLaunchTask line from `.vscode/launch.json` file.
-* Modify `.vscode/mod.csproj` and `About/About.xml` according to your needs.
+## 빌드
 
-## Debugger
-### Setup
-1. Follow the instructions of [pardeike / Rimworld-Doorstop](https://github.com/pardeike/Rimworld-Doorstop) to create a debug server.
-2. Install [Mono Debug extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug).
-3. In the Debug Panel (`Ctrl+Shift+D`), switch the configuration from `Build & Run` to `Build & Debug`.
-4. Linux users additionally need to install the `mono` package.
+`.NET 10 SDK`와 RimWorld 1.7 설치본이 필요합니다. 기본 경로가 다르면 `RIMWORLD_DIR` 또는 `-p:RimWorldDir="게임 루트"`를 지정합니다.
 
-### Potential Issues
-* __Launch process hanging__  
-If the Doorstop `debug_suspend` option is enabled, the `Build & Run` action will hang because the process is waiting for a debugger handshake. To resolve this, either attach the debugger manually or use the `Build & Debug` action to automate the connection.
+```powershell
+dotnet build package.csproj
+```
 
-## Companion Tools
-* __Mod Generator Utility__ | [Jellypowered / Prepare New Mod](https://github.com/Jellypowered/PrepareNewMod)
+Harmony는 게임의 `brrainz.harmony` 모드가 제공합니다. 프로젝트는 컴파일 시 `Lib.Harmony.Ref`를 사용합니다.
