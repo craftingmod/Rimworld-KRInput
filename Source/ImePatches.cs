@@ -133,11 +133,11 @@ namespace RimWorldKRInput
             if (!__3 || __6 == null || fieldDepth == 0 || control != ImeState.Owner) return;
             Rect area = (Rect)TextRect.Invoke(null, new object[] { __0, __4, __5 });
             float wrap = __4 ? (float)WrapWidth.Invoke(null, new object[] { area, __5 }) : -1f;
-            Vector2 caret = __6.TextCursorPos(__2, 0f, FontStyle.Normal, __1, wrap, Math.Clamp(Caret(), 0, __1.Length), out float lineHeight);
+            Vector2 caret = __6.TextCursorPos(__2, 0f, FontStyle.Normal, __1, wrap, Math.Clamp(Caret(), 0, __1.Length), out float lineHeight, richText: true);
             float offset = 0f;
             if (!__4)
             {
-                float width = __6.TextCursorPos(__2, 0f, FontStyle.Normal, __1, -1f, __1.Length, out _).x;
+                float width = __6.TextCursorPos(__2, 0f, FontStyle.Normal, __1, -1f, __1.Length, out _, richText: true).x;
                 int align = (int)(__5 ?? GUI.skin.textField).alignment % 3;
                 offset = Math.Max(0f, area.width - width) * (align == 1 ? 0.5f : align == 2 ? 1f : 0f);
                 caret.y = __0.y - area.y + 3f;
@@ -148,7 +148,7 @@ namespace RimWorldKRInput
             WindowsImeBridge.Candidate(__6.GuiToScreenPoint(new Vector2(x + caret.x, y + caret.y + lineHeight)));
             if (__state == null) return;
             CompositionRects.Clear();
-            __6.TextSelectionRects(__2, 0f, FontStyle.Normal, __state.Text, wrap, __state.Start, __state.End, CompositionRects);
+            __6.TextSelectionRects(__2, 0f, FontStyle.Normal, __state.Text, wrap, __state.Start, __state.End, CompositionRects, richText: true);
             __6.PushClipRect(area);
             try
             {

@@ -83,6 +83,7 @@ internal static class Program
         float beforeX = (float)xField.GetValue(null), beforeY = (float)yField.GetValue(null);
         Check((string)field.Invoke(null, new object[] { rect, "ab", style, false }) == "ab", "Preedit must never escape through return");
         Check(fake.Text == "a안b", "Real renderer receives preedit once: " + fake.Text);
+        Check(!WindowsImeBridge.Disabled, "TextField cursor/selection backend calls must not disable the IME bridge");
         var editor = (TextEditor)GUIUtility.GetStateObject(typeof(TextEditor), id);
         Check(editor.text == "ab" && editor.cursorIndex == beforeCaret, "Editor remains committed");
         Check((int)caretField.GetValue(null) == beforeCaret && (float)xField.GetValue(null) == beforeX && (float)yField.GetValue(null) == beforeY, "Temporary render state restores");
@@ -115,6 +116,7 @@ internal static class Program
         field.Invoke(null, new object[] { rect, "a\nb", style, true });
         ImeState.Begin(); ImeState.Update("", "안", 1);
         Check((string)field.Invoke(null, new object[] { rect, "a\nb", style, true }) == "a\nb" && fake.Text == "a\n안b", "TextArea uses the original multiline renderer without changing return");
+        Check(!WindowsImeBridge.Disabled, "TextArea cursor/selection backend calls must not disable the IME bridge");
         WindowsImeBridge.Cancel();
         var readOnlyStyle = new GUIStyle();
         field.Invoke(null, new object[] { rect, "readonly", readOnlyStyle, true });

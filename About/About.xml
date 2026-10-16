@@ -3,6 +3,7 @@
 	<packageId>alyac.rimworld.krinput</packageId>
 	<name>Waylith Korean IME Patch</name>
 	<author>alyac</author>
+	<modVersion>0.1.1</modVersion>
 	<!--<modIconPath>About/icon.png</modIconPath>-->
 	<supportedVersions>
 		<li>1.7</li>
@@ -30,6 +31,7 @@
 	</loadAfter>
 
 	<description>림월드 1.7 Waylith 엔진에서 발생하는 한글 IME 입력 문제를 해결하는 윈도우용 한글 브릿지입니다.
+	1.7.4980 버전에서 테스트 되었습니다.
 ------
 원활한 한국어 사용을 위해
  * World Feature Text Compatibility 1.7 (창작마당)

@@ -10,6 +10,8 @@
 
 `.NET 10 SDK`와 RimWorld 1.7 설치본이 필요합니다. 기본 경로가 다르면 `RIMWORLD_DIR` 또는 `-p:RimWorldDir="게임 루트"`를 지정합니다.
 
+RimWorld 1.7.4980 rev60의 GUI API를 기준으로 빌드합니다. 이전 빌드에서 `IGuiBackend.TextCursorPos`의 `MissingMethodException`이 발생하면 최신 `1.7/Assemblies/KRInput.dll`로 교체한 뒤 게임을 다시 시작하세요.
+
 ```powershell
 dotnet build package.csproj
 ```
