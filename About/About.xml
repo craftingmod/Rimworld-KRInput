@@ -30,8 +30,10 @@
 		<!-- <li>username.modname</li> -->
 	</loadAfter>
 
-	<description>림월드 1.7 Waylith 엔진에서 발생하는 한글 IME 입력 문제를 해결하는 윈도우용 한글 브릿지입니다.
-	1.7.4980 버전에서 테스트 되었습니다.
+	<description>Deprecated — RimWorld 1.7.4980 rev60에서 게임 본체에 Windows IME 지원이 추가되었습니다.
+해당 버전에서는 이 모드를 비활성화하거나 제거하세요. 현재 빌드는 본체와의 중복 처리를 피하기 위해 IME 패치를 설치하지 않습니다.
+
+림월드 1.7 Waylith 엔진에서 발생하던 한글 IME 입력 문제를 해결하기 위한 윈도우용 한글 브릿지였습니다.
 ------
 원활한 한국어 사용을 위해
  * World Feature Text Compatibility 1.7 (창작마당)

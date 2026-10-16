@@ -8,7 +8,8 @@ namespace RimWorldKRInput
     {
         static HarmonyPatchEntryPoint()
         {
-            ImePatches.Install();
+            // Deprecated: RimWorld 1.7.4980 rev60 provides its own Windows IME bridge.
+            // ImePatches.Install();
         }
     }
 }
